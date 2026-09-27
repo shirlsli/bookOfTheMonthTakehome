@@ -3,8 +3,20 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-)
+async function enableMocking() {
+  if (!import.meta.env.DEV) {
+    return
+  }
+  const { setupWorker } = await import ('msw/browser');
+  const { handler } = await import('./mock/handler');
+  const worker = setupWorker(...handler);
+  await worker.start({ onUnhandledRequest: 'bypass' });
+}
+
+enableMocking().then(() => {
+  createRoot(document.getElementById('root')).render(
+    <StrictMode>
+      <App />
+    </StrictMode>,
+  )
+})

@@ -4,12 +4,7 @@ import { BookComponent } from './book';
 
 interface OrderProps {
     cart: Cart
-    placeOrder: () => void;
-}
-
-interface ConfirmationMessage {
-    orderId: string;
-    shipDate: string;
+    placeOrder: (cart: Cart) => void;
 }
 
 export const CheckoutPage: React.FC<OrderProps> = ({cart, placeOrder}) => {
@@ -21,7 +16,7 @@ export const CheckoutPage: React.FC<OrderProps> = ({cart, placeOrder}) => {
             })}
             <h2>Order Total: {cart.total}</h2>
             <p>Shipping Address: {cart.user.address}</p>
-            <button>Place Order</button>
+            <button onClick={() => placeOrder(cart)}>Place Order</button>
         </>
     )
 }

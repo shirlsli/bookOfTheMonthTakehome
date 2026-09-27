@@ -1,7 +1,8 @@
 # Book of the Month Takehome
 
 ## Demo
-<img width="1024" height="608" alt="Adobe Express - book_of_the_month_takehome_demo" src="https://github.com/user-attachments/assets/a11ea73f-7727-402c-bc5d-ab3808b6d3c3" />
+A recorded demo is in the zip file because the video was too big to attach to the README.
+[book_of_the_month_takehome_demo.zip](https://github.com/user-attachments/files/32712556/book_of_the_month_takehome_demo.zip)
 
 ## Run Instructions
 **Requirements:** Node.js 20.19+ or 22.12+ (required by Vite 8)

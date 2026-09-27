@@ -53,6 +53,8 @@ function App() {
     window.history.pushState(null, '', '#confirmation');
   }
 
+  // could have made the post checkout component a page, but stuck with a component since there's not a lot of things to put on there
+
   return (
     <>
       {visibleComponent === null ? 

@@ -1,6 +1,7 @@
 import { http, HttpResponse } from 'msw';
 import { nanoid } from 'nanoid';
 
+// created a mock API endpoint with MSW since wasn't given a real API endpoint
 export const handler = [
   http.post('/api/checkout', async ({ request }) => {
     const failMode = new URL(window.location.href).searchParams.get('mockFail');
@@ -8,9 +9,10 @@ export const handler = [
       return HttpResponse.json({ error: 'Could not process request.' }, { status: 500 });
     }
     const { bookIds } = (await request.json()) as { bookIds?: number[] }; // unused currently since no backend code exists, but would be used in a real-life situation
-    const orderId: string = nanoid(10);
+    const orderId: string = nanoid(10); // picked the id length arbitrarily since there was no specification, this would depend on how many orders you'd expect to receive in the foreseeable future
     const estimatedShipDate = new Date();
-    estimatedShipDate.setDate(estimatedShipDate.getDate() + 5);
+    estimatedShipDate.setDate(estimatedShipDate.getDate() + 5); // assuming 5 days (another arbitrary selection) due to not having any requirements given to me
+    // actual estimated ship date would depend on customer/warehouse locations and delivery routes which would be handled by the backend and in a separate function at least
 
     // if this wasn't mocked, the function would call some other function to take bookIds, orderId, and estimatedShipDate and save it as some sort of Order object in database
     return HttpResponse.json({

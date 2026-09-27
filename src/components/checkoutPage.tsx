@@ -7,6 +7,10 @@ interface OrderProps {
     placeOrder: (cart: Cart) => void;
 }
 
+// assuming the total order price is calculated from the sum of each book in the cart
+// not sure if membership plan price is typically used for the total or if this operates like a typical bookstore
+// since this scenario is contained to the checkout page only, also did not let user be able to edit their cart
+// in real life, the user should be able to change their books if they choose to
 export const CheckoutPage: React.FC<OrderProps> = ({cart, placeOrder}) => {
     return (
         <div className="mx-auto max-w-5xl px-6 py-8">

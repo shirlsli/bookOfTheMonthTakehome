@@ -5,6 +5,7 @@ interface BookProps {
     book: Book;
 }
 
+// made each book a component so that they can be neatly populated onto the checkout page
 export const BookComponent: React.FC<BookProps> = ({ book }) => {
     return (
         <div className="flex w-full items-center gap-4 py-4 select-none">

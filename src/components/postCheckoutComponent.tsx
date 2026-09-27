@@ -7,6 +7,8 @@ interface ResponseProps {
     onBack: () => void;
 }
 
+// would add a link to the browse books page in case the user wants to checkout more books, but that doesn't exist in the scope of this takehome
+// using very simple Tailwind CSS since there were no specifications
 export const PostCheckoutComponent: React.FC<ResponseProps> = ({ response, onBack }) => {
     if ('error' in response) {
         return (

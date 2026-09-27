@@ -11,6 +11,8 @@ interface OrderProps {
 // not sure if membership plan price is typically used for the total or if this operates like a typical bookstore
 // since this scenario is contained to the checkout page only, also did not let user be able to edit their cart
 // in real life, the user should be able to change their books if they choose to
+// additionally, price and text would be affected by the local currency of the user and their language settings which are not handled here
+// localization would have to be applied for this to be valid for non-US and non-English language users
 export const CheckoutPage: React.FC<OrderProps> = ({cart, placeOrder}) => {
     return (
         <div className="mx-auto max-w-5xl px-6 py-8">

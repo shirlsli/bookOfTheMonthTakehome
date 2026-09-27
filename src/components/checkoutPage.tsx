@@ -19,7 +19,7 @@ export const CheckoutPage: React.FC<OrderProps> = ({cart, placeOrder}) => {
                         })}
                     </div>
                     <div className="flex justify-between border-t border-gray-200 pt-4 font-semibold text-gray-900">
-                        <span>Order Total</span>
+                        <span>Total</span>
                         <span>{cart.total.toLocaleString(undefined, { style: 'currency', currency: 'USD' })}</span>
                     </div>
                 </div>

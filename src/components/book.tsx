@@ -13,7 +13,7 @@ export const BookComponent: React.FC<BookProps> = ({ book }) => {
                 <p className="truncate font-serif font-semibold text-gray-900">{book.title}</p>
                 <p className="truncate font-serif text-gray-900">{book.author}</p>
             </div>
-            <p className="flex-none font-serif font-medium text-gray-900">
+            <p className="flex-none font-semibold text-gray-900">
                 {book.price.toLocaleString(undefined, { style: 'currency', currency: 'USD' })}
             </p>
         </div>

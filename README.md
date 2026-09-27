@@ -13,3 +13,5 @@ npm run dev
 ```
 
 Open http://localhost:5173 in your browser for the successful mock endpoint. To try out the mock failure endpoint, use http://localhost:5173/?mockFail=server.
+
+I didn't create a new branch to work on and open PRs from them since this project is only worked on by myself. If I were on a team, I would be creating branches and not push straight to `main`.

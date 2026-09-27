@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { CheckoutPage } from './components/checkoutPage';
 import { PostCheckoutComponent } from './components/postCheckoutComponent';
 import userInfo from './json/userInfo.json';
@@ -31,17 +31,26 @@ const book3 = {
   price: Number(book3Data.price)
 }
 
+const books = [book1, book2, book3];
+
 function App() {
-  const [cart, setCart] = useState({
+  const [cart, setCart] = useState({ // normally would use this to change cart contents in real life, but since the cart is hardcoded, there's no use for this
     user: userInfo,
-    books: [book1, book2, book3],
-    total: book1.price
+    books: books,
+    total: books.reduce((sum, book) => sum + book.price, 0)
   });
   const [visibleComponent, switchComponent] = useState(null);
+
+  useEffect(() => {
+    const onPopState = () => switchComponent(null);
+    window.addEventListener('popstate', onPopState);
+    return () => window.removeEventListener('popstate', onPopState);
+  }, []);
 
   const handlePlaceOrder = async (cart) => {
     const response = await placeOrder(cart);
     switchComponent(response);
+    window.history.pushState(null, '', '#confirmation');
   }
 
   return (
